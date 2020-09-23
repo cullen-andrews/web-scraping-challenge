@@ -6,12 +6,17 @@ from splinter import Browser
 import pandas as pd
 
 # Setting up chromedriver, located in same folder as this code.
-# This cell largely pulled from activity Ins_Splinter
 
-executable_path = {'executable_path': 'chromedriver.exe'}
-browser = Browser('chrome', **executable_path, headless=False)
+# Putting this code in a function inspired by activity Ins_Scrape_And_Render 
+
+def init_browser():
+    # Note you should replace 'chromedriver.exe' with the path to the chromedriver
+    executable_path = {'executable_path': 'chromedriver.exe'}
+    return Browser('chrome', **executable_path, headless=False)
 
 def scrape():
+
+    browser = init_browser()
 
     # Scraping Mars News
 
@@ -165,4 +170,3 @@ def scrape():
 
 
 
-scrape()
