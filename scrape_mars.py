@@ -155,6 +155,8 @@ def scrape():
 
     browser.quit()
 
+    return final_dict
+
 
 
 
