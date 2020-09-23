@@ -23,23 +23,23 @@ def home():
     mars_data = mongo.db.collection.find_one()
 
     # Return template and data
-    return render_template("index.html", vacation=destination_data)
+    return render_template("index.html", final_dict=final_dict)
 
 
-# # Route that will trigger the scrape function
-# @app.route("/scrape")
-# def scrape():
+# Route that will trigger the scrape function
+@app.route("/scrape")
+def scrape():
 
-#     # Run the scrape function
-#     costa_data = scrape_costa.scrape_info()
+    # Run the scrape function
+    mars_scraped_data = scrape_mars.scrape()
 
-#     # Update the Mongo database using update and upsert=True
-#     mongo.db.collection.update({}, costa_data, upsert=True)
+    # Update the Mongo database using update and upsert=True
+    mongo.db.collection.update({}, mars_scraped_data, upsert=True)
 
-#     # Redirect back to home page
-#     return redirect(url_for('home'))
+    # Redirect back to home page
+    return redirect(url_for('home'))
 
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
  
