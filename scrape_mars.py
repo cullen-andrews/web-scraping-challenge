@@ -67,7 +67,7 @@ def scrape():
 
     # Appending to get the full url
 
-    featured_image_url = "jpl.nasa.gov" + address_end
+    featured_image_url = "https://jpl.nasa.gov" + address_end
 
     final_dict["jpl_url"] = featured_image_url
 

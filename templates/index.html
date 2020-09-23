@@ -1,5 +1,4 @@
- <!-- It is slight modification of template from Ins_Scrape_And_Render -->
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hot Finds</title>
+  <title>Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
@@ -15,18 +14,33 @@
   <div class="container">
 
     <div class="jumbotron text-center">
-      <h1>Hot Finds On Craigslist</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Find An Awesome Deal!</a></p>
+      <h1>Data Scraped from Various Mars-Related Websites</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape</a></p>
     </div>
 
-    <!-- Craigslist Listings -->
+    <!-- Mars Data -->
     {% if listings %}
-    <div class="row" id="craiglist-listings">
+    <div class="row" id="mars-news">
       <div class="col-md-12">
-        <h4 class="heading">{{listings.mars_news_title}} {{listings.mars_news_paragraph}}</h4>
-        <small>{{listings.jpl_url}}</small>
+        <h4 class="heading"><b>{{listings.mars_news_title}}</b></h4>
+          <p>{{listings.mars_news_paragraph|safe}}</p>
       </div>
     </div>
+
+    <div class="row" id="jpl-im">
+      <div class="col-md-12">
+        <a href={{listings.jpl_url}}>
+          <img alt="JPL Current Image" src={{listings.jpl_url}} />
+        </a>
+      </div>
+    </div>
+
+    <div class="row" id="fact-table">
+      {{listings.mars_fact_table_html_string}}
+
+
+    </div>
+
     {% endif %}
 
   </div>
