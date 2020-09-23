@@ -25,8 +25,7 @@ def scrape():
 
     html = requests.get(url).text
     soup = bs(html, 'html.parser')
-    # print(soup.prettify())
-    # #html = requests.get(url).text
+    
 
     # Scraping the latest News Title
     results = soup.find_all("div", class_="content_title")
@@ -34,14 +33,14 @@ def scrape():
     title = results[0].text
     
     results = soup.find_all("div", class_="rollover_description_inner")
-    #results
+    
     paragraph = results[0].text
-    #paragraph
+    
 
     final_dict["mars_news_title"] = title
     final_dict["mars_news_paragraph"] = paragraph
 
-    #print(final_dict)
+    
 
 
     # Scraping JPL Mars space Images
@@ -67,7 +66,7 @@ def scrape():
 
     final_dict["jpl_url"] = featured_image_url
 
-    #print(final_dict)
+    
 
 
 
@@ -101,8 +100,7 @@ def scrape():
 
     final_dict["mars_fact_table_html_string"] = html_table
 
-    #print(final_dict)
-
+    
 
 
     # Mars Hemispheres
@@ -153,7 +151,9 @@ def scrape():
         
     final_dict["hemisphere_urls"] = hemisphere_image_urls
 
-    print(final_dict)
+    
+
+    browser.quit()
 
 
 
