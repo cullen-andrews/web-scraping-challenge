@@ -23,7 +23,7 @@
     <div class="row" id="mars-news">
       <div class="col-md-12">
         <h4 class="heading"><b>{{listings.mars_news_title}}</b></h4>
-          <p>{{listings.mars_news_paragraph|safe}}</p>
+          <p>{{listings.mars_news_paragraph}}</p>
       </div>
     </div>
 
@@ -36,7 +36,11 @@
     </div>
 
     <div class="row" id="fact-table">
-      {{listings.mars_fact_table_html_string}}
+      {{listings.mars_fact_table_html_string|safe}}
+    </div>
+
+    <div class="row" id=hemisphere_urls> 
+      {{listings.hemisphere_urls[0]}}
 
 
     </div>
